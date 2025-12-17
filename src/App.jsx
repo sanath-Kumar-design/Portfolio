@@ -56,14 +56,14 @@ const App = () => {
       title: 'Task Manager',
       description: 'A MERN stack Task Manager app for managing tasks and team collaboration, featuring task assignment, progress tracking, filters, notifications, and secure JWT authentication.',
       image: "image.png",
-      link: 'https://github.com/sanath-Kumar-design/Task-manager.git',
+      link: 'https://task-manager-klkv-8s5zqkqtf-sanath-kumars-projects-02eccfe3.vercel.app',
       tech: ['React', 'Tailwind css', 'Node.js', 'Express.js', 'Mongo DB'],
     },
     {
       title: 'Modern Furniture E-Commerce Website',
       description: 'A modern furniture website built with the MERN stack that lets users explore and manage furniture designs seamlessly. It features an interactive and visually appealing interface for an enhanced browsing experience.',
       image: 'project2.png',
-      link: 'https://github.com/sanath-Kumar-design/Furnite.git',
+      link: 'https://furnite-erns-9aj1vrwcb-sanath-kumars-projects-02eccfe3.vercel.app',
       tech: ['React', 'Tailwind css'],
     },
     {
@@ -151,7 +151,7 @@ const App = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center px-4 max-w-4xl"
         >
-          <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="name text-6xl md:text-7xl font-bold mb-6 leading-tight">
             Hi, I'm <span className="text-white/80">Sanath Kumar</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-2xl mx-auto">
@@ -274,7 +274,7 @@ const App = () => {
                     View Project <ExternalLink className="w-4 h-4 ml-1" />
                   </a>
                   <div className="flex space-x-2">
-                    <Github className="w-5 h-5 text-white/70 hover:text-white cursor-pointer" />
+                    
                   </div>
                 </div>
               </div>
