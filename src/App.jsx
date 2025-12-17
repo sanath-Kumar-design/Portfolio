@@ -56,7 +56,7 @@ const App = () => {
       title: 'Task Manager',
       description: 'A MERN stack Task Manager app for managing tasks and team collaboration, featuring task assignment, progress tracking, filters, notifications, and secure JWT authentication.',
       image: "image.png",
-      link: 'https://task-manager-klkv-8s5zqkqtf-sanath-kumars-projects-02eccfe3.vercel.app',
+      link: 'https://task-manager-omega-weld.vercel.app/login',
       tech: ['React', 'Tailwind css', 'Node.js', 'Express.js', 'Mongo DB'],
     },
     {
