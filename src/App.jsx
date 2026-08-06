@@ -7,6 +7,7 @@ import { FaHtml5 } from "react-icons/fa";
 import { SiExpress } from "react-icons/si";
 import { title } from 'framer-motion/client';
 import { SiLeetcode } from "react-icons/si";
+import { SiFastapi } from "react-icons/si";
 
 const App = () => {
     const [activeSection, setActiveSection] = useState('home');
@@ -79,21 +80,39 @@ const App = () => {
         },
 
     ];
-    const skills = [
-        { name: 'Html', icon: FaHtml5, category: 'Frontend' },
-        { name: 'Tailwind CSS', icon: Palette, category: 'Styling' },
-        { name: 'CSS', icon: Palette, category: 'Styling' },
-        { name: 'MongoDB', icon: Database, category: 'Database' },
-        { name: 'Express.Js', icon: SiExpress, category: 'Database' },
-        { name: 'React', icon: Code, category: 'Frontend' },
-        { name: 'Node.js', icon: Database, category: 'Backend' },
-        { name: 'JavaScript', icon: IoLogoJavascript, category: 'Languages' },
-        { name: 'Figma', icon: Palette, category: 'Design' },
-        { name: 'Node.js', icon: Database, category: 'Backend' },
-        { name: 'Python', icon: FaPython, category: 'Languages' },
-        { name: 'Responsive Design', icon: Smartphone, category: 'UI/UX' },
-        { name: 'Git', icon: GitBranch, category: 'Tools' },
+    const skillCategories = [
+        {
+            title: "Languages",
+            color: "cyan",
+            skills: ["JavaScript", "Python", "HTML5", "CSS3"],
+        },
+        {
+            title: "Frontend",
+            color: "blue",
+            skills: ["React", "Redux Toolkit", "Tailwind CSS", "Vite"],
+        },
+        {
+            title: "Backend",
+            color: "indigo",
+            skills: ["Node.js", "Express.js", "FastAPI", "REST APIs", "JWT Authentication"],
+        },
+        {
+            title: "Database",
+            color: "violet",
+            skills: ["MongoDB", "PostgreSQL", "MySQL", "SQLAlchemy"],
+        },
+        {
+            title: "AI",
+            color: "fuchsia",
+            skills: ["OpenAI API", "LangGraph", "Conversational AI"],
+        },
+        {
+            title: "Tools",
+            color: "slate",
+            skills: ["Git", "GitHub", "Postman", "CI/CD"],
+        },
     ];
+
 
     return (
         <div className="min-h-screen bg-black text-white overflow-x-hidden">
@@ -174,69 +193,96 @@ const App = () => {
                 </motion.div>
             </section>
 
-            <section id="about" className="py-20 px-4 max-w-7xl mx-auto">
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-4xl font-bold text-center mb-16"
-                >
-                    About Me
-                </motion.h2>
-                <div className="grid md:grid-cols-2 gap-12 items-center">
+            <section
+                id="about"
+                className="relative min-h-screen w-full overflow-hidden bg-black px-4 py-24"
+            >
+                <div className="pointer-events-none absolute inset-0">
+                    <div className="absolute left-1/4 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/5 blur-[120px]" />
+                    <div className="absolute bottom-0 right-1/4 h-[600px] w-[600px] translate-x-1/2 rounded-full bg-white/5 blur-[140px]" />
+                </div>
+
+                <div className="relative mx-auto max-w-7xl">
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="space-y-6"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                        className="mb-16 text-center"
                     >
-                        <p className="text-lg text-white/80 leading-relaxed">
-                            With over 2 years of front-end development experience, I specialize in building clean, responsive, and high-performance UIs with React, Tailwind CSS,
-                            and Framer Motion. I also have full-stack experience with the MERN stack, having built complete applications connecting front-end to Node.js, Express,
-                            and MongoDB backends.
-                        </p>
-                        <p className="text-lg text-white/80 leading-relaxed">
-                            Outside code, you'll find me exploring design trends or hiking—always seeking that perfect balance of form and function.
-                        </p>
+                        <span className="mb-4 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium tracking-wide text-white/70">
+                            Get to know me
+                        </span>
+                        <h2 className="mt-4 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
+                            About Me
+                        </h2>
                     </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center"
-                    >
-                        <div className="bg-white/5 rounded-2xl p-8 shadow-xl">
-                            <h3 className="text-2xl font-semibold mb-6">Skills</h3>
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                                {skills.map((skill, index) => {
-                                    const Icon = skill.icon;
-                                    return (
-                                        <motion.div
-                                            key={skill.name}
-                                            initial={{ opacity: 0, scale: 0.9, y: 10 }}
-                                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                                            whileHover={{
-                                                scale: 1.05,
-                                                y: -2,
-                                                boxShadow: '0 10px 25px rgba(255, 255, 255, 0.1)'
-                                            }}
-                                            className="flex items-center space-x-2 p-3 bg-white/5 rounded-lg border border-white/10 cursor-pointer group"
-                                        >
-                                            <Icon className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
-                                            <span className="text-sm font-medium text-white/80 group-hover:text-white transition-colors">
-                                                {skill.name}
-                                            </span>
-                                        </motion.div>
-                                    );
-                                })}
+
+                    <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+                        <motion.div
+                            initial={{ opacity: 0, x: -40 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                            className="relative rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl shadow-2xl shadow-black/40 sm:p-10"
+                        >
+                            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-white/10 via-transparent to-white/5 opacity-50 pointer-events-none" />
+                            <div className="relative">
+                                <h3 className="mb-6 text-2xl font-semibold text-white sm:text-3xl">
+                                    Full-Stack Developer
+                                </h3>
+                                <div className="space-y-4 text-base leading-relaxed text-slate-300 sm:text-lg">
+                                    <p>
+                                        I'm a Full-Stack Developer specializing in the MERN stack and FastAPI,
+                                        passionate about building scalable web applications and AI-powered
+                                        solutions.
+                                    </p>
+                                    <p>
+                                        I enjoy developing responsive user interfaces, designing REST APIs, and
+                                        integrating AI workflows into real-world applications.
+                                    </p>
+                                    <p>
+                                        I've built production-ready projects including an AI-powered Task
+                                        Manager and an HCP Interaction CRM, gaining experience across React,
+                                        Node.js, FastAPI, MongoDB, PostgreSQL, LangGraph, and modern development
+                                        tools.
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </motion.div>
+                        </motion.div>
+
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            className="grid grid-cols-1 gap-5 sm:grid-cols-2"
+                        >
+                            {skillCategories.map((category) => {
+                                return (
+                                    <motion.div
+                                        key={category.title}
+                                        className={`group relative rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10 *:hover:shadow-2xl`}
+                                    >
+                                        <h4 className={`mb-4 text-sm font-bold uppercase tracking-wider text-white`}>
+                                            {category.title}
+                                        </h4>
+                                        <div className="flex flex-wrap gap-2">
+                                            {category.skills.map((skill) => (
+                                                <motion.span
+                                                    key={skill}
+                                                    whileHover={{ scale: 1.05, y: -2 }}
+                                                    className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:bg-white/15 hover:border-white/20">
+                                                    {skill}
+                                                </motion.span>
+                                            ))}
+                                        </div>
+                                    </motion.div>
+                                );
+                            })}
+                        </motion.div>
+                    </div>
                 </div>
             </section>
-
             {/* Projects Section */}
             <section
                 id="projects"
